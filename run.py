@@ -47,11 +47,34 @@ if __name__ == '__main__':
     t = time.time()
     humans = e.inference(image, resize_to_default=(w > 0 and h > 0), upsample_size=args.resize_out_ratio)
     elapsed = time.time() - t
+   
+    
+    dellist=[3,4]
+    for i in range(6,14):
+        dellist.append(i)
+    for h in humans:
+        for i in dellist:
+            if (i in h.body_parts):
+                del h.body_parts[i]
 
+    print(humans)
+    
     logger.info('inference image: %s in %.4f seconds.' % (args.image, elapsed))
 
     image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
+    
+    
+    
+    import matplotlib.pyplot as plt
 
+    fig = plt.figure()
+    
+    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+
+    bgimg = cv2.cvtColor(image.astype(np.uint8), cv2.COLOR_BGR2RGB)
+    bgimg = cv2.resize(bgimg, (e.heatMat.shape[1], e.heatMat.shape[0]), interpolation=cv2.INTER_AREA)
+    plt.show()
+"""
     try:
         import matplotlib.pyplot as plt
 
@@ -90,3 +113,5 @@ if __name__ == '__main__':
         logger.warning('matplitlib error, %s' % e)
         cv2.imshow('result', image)
         cv2.waitKey()
+
+"""
