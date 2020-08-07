@@ -9,6 +9,8 @@ import numpy as np
 from tf_pose.estimator import TfPoseEstimator
 from tf_pose.networks import get_graph_path, model_wh
 
+from makedataset import transfer
+
 logger = logging.getLogger('TfPoseEstimatorRun')
 logger.handlers.clear()
 logger.setLevel(logging.DEBUG)
@@ -57,14 +59,25 @@ if __name__ == '__main__':
             if (i in h.body_parts):
                 del h.body_parts[i]
 
-    print(humans)
-    
+    print(humans[0].body_parts[0])
+    print(humans[0].body_parts[0].get_part_name())
+    print(humans[0].body_parts[0].x, humans[0].body_parts[0].y)
+    print(humans[0].body_parts[0].part_idx)
+    print(type(humans[0].body_parts[0]))
     logger.info('inference image: %s in %.4f seconds.' % (args.image, elapsed))
 
     image = TfPoseEstimator.draw_humans(image, humans, imgcopy=False)
     
-    
-    
+    result=transfer(humans)    
+
+    f=open('../dataset/'+args.image.strip('/')[-1]+".txt", 'w')
+
+    for row in result:
+        for j in row:
+            f.write(str(j)+" ")
+        f.write("\n")
+    f.close()
+
     import matplotlib.pyplot as plt
 
     fig = plt.figure()
@@ -73,7 +86,10 @@ if __name__ == '__main__':
 
     bgimg = cv2.cvtColor(image.astype(np.uint8), cv2.COLOR_BGR2RGB)
     bgimg = cv2.resize(bgimg, (e.heatMat.shape[1], e.heatMat.shape[0]), interpolation=cv2.INTER_AREA)
+    plt.axis('off')
+    plt.savefig("_"+args.image.strip('/')[-1]+'_r.png')
     plt.show()
+
 """
     try:
         import matplotlib.pyplot as plt
