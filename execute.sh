@@ -1,0 +1,16 @@
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/1.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/2.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/3.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/4.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/5.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/6.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/7.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/8.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/9.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/10.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/11.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/12.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/13.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/14.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/15.jpg
+python3 run.py --model=mobilenet_thin --resize=432x368 --image=..Downloads/Dataset/true/16.jpg
